@@ -13,23 +13,40 @@ struct ContentView: View {
     
     var body: some View {
         
-//        List(model.stationInfo) { station in
-//
-//            VStack{
-//                Text("Hello")
-//                Text(station.StationName)
-//            }
-        VStack {
-            
-            Text(model.stationInfo[0].RecordSet["Record"]!["SB_Time3"]!)
-            
-        }
-        
-//        Text(model().stationInfo)
 
+        ZStack {
+            VStack {
+                Text(model.stationName)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                    
+                VStack{
+                    Text("Northbound Trains")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                    HStack() {
+                        Text(model.NB_train1)
+                        Text(model.NB_train2)
+                    }
+                }
+                VStack{
+                    Text("Southbound Trains")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                    HStack() {
+                        Text(model.SB_train1)
+                        Text(model.SB_train2)
+                    }
+                }
+            }
+            
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
         
-//        }
     }
+    
+    
     
 }
 
