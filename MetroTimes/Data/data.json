@@ -1,0 +1,38 @@
+{
+    "RecordSet": {
+        "Record": {
+            "StationID": "DLN",
+            "StationName": "Dadeland North",
+            "NB_Time1": "5:30 min",
+            "NB_Time1_Est": "330",
+            "NB_Time1_Arrival": "9:17 AM",
+            "NB_Time1_Train": "SCH",
+            "NB_Time1_LineID": "GRN",
+            "NB_Time2": "15:30 min",
+            "NB_Time2_Est": "930",
+            "NB_Time2_Arrival": "9:27 AM",
+            "NB_Time2_Train": "SCH",
+            "NB_Time2_LineID": "GRN",
+            "NB_Time3": "25:30 min",
+            "NB_Time3_Est": "1530",
+            "NB_Time3_Arrival": "9:37 AM",
+            "NB_Time3_Train": "SCH",
+            "NB_Time3_LineID": "GRN",
+            "SB_Time1": "7:47 min",
+            "SB_Time1_Est": "467",
+            "SB_Time1_Arrival": "9:19 AM",
+            "SB_Time1_Train": "680",
+            "SB_Time1_LineID": "GRN",
+            "SB_Time2": "15:28 min",
+            "SB_Time2_Est": "928",
+            "SB_Time2_Arrival": "9:27 AM",
+            "SB_Time2_Train": "690",
+            "SB_Time2_LineID": "GRN",
+            "SB_Time3": "29:02 min",
+            "SB_Time3_Est": "1742",
+            "SB_Time3_Arrival": "9:40 AM",
+            "SB_Time3_Train": "675",
+            "SB_Time3_LineID": "GRN"
+        }
+    }
+}

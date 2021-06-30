@@ -11,6 +11,10 @@
 		2541304A26897354000D8F7D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2541304926897354000D8F7D /* ContentView.swift */; };
 		2541304C26897357000D8F7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2541304B26897357000D8F7D /* Assets.xcassets */; };
 		2541304F26897357000D8F7D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2541304E26897357000D8F7D /* Preview Assets.xcassets */; };
+		2541305D2689833C000D8F7D /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2541305C2689833C000D8F7D /* StationModel.swift */; };
+		2541305F26898349000D8F7D /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2541305E26898349000D8F7D /* Station.swift */; };
+		25C747C7268989A400A64EA4 /*  station.json in Resources */ = {isa = PBXBuildFile; fileRef = 2541305A26897391000D8F7D /*  station.json */; };
+		25C747C9268989FA00A64EA4 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 25C747C8268989FA00A64EA4 /* data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,10 @@
 		2541304B26897357000D8F7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2541304E26897357000D8F7D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2541305026897357000D8F7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2541305A26897391000D8F7D /*  station.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = " station.json"; sourceTree = "<group>"; };
+		2541305C2689833C000D8F7D /* StationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationModel.swift; sourceTree = "<group>"; };
+		2541305E26898349000D8F7D /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		25C747C8268989FA00A64EA4 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +61,10 @@
 			isa = PBXGroup;
 			children = (
 				2541304726897354000D8F7D /* MetroTimesApp.swift */,
-				2541304926897354000D8F7D /* ContentView.swift */,
+				254130572689736C000D8F7D /* Views */,
+				2541305826897370000D8F7D /* ViewModels */,
+				2541305626897365000D8F7D /* Models */,
+				2541305926897375000D8F7D /* Data */,
 				2541304B26897357000D8F7D /* Assets.xcassets */,
 				2541305026897357000D8F7D /* Info.plist */,
 				2541304D26897357000D8F7D /* Preview Content */,
@@ -67,6 +78,39 @@
 				2541304E26897357000D8F7D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2541305626897365000D8F7D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2541305E26898349000D8F7D /* Station.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		254130572689736C000D8F7D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2541304926897354000D8F7D /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2541305826897370000D8F7D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2541305C2689833C000D8F7D /* StationModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2541305926897375000D8F7D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2541305A26897391000D8F7D /*  station.json */,
+				25C747C8268989FA00A64EA4 /* data.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +170,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25C747C7268989A400A64EA4 /*  station.json in Resources */,
 				2541304F26897357000D8F7D /* Preview Assets.xcassets in Resources */,
 				2541304C26897357000D8F7D /* Assets.xcassets in Resources */,
+				25C747C9268989FA00A64EA4 /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +185,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2541304A26897354000D8F7D /* ContentView.swift in Sources */,
+				2541305D2689833C000D8F7D /* StationModel.swift in Sources */,
+				2541305F26898349000D8F7D /* Station.swift in Sources */,
 				2541304826897354000D8F7D /* MetroTimesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
