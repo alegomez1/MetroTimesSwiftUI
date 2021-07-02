@@ -105,26 +105,57 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, maxHeight: 30, alignment: .leading)
                     ZStack{
                         RoundedRectangle(cornerRadius: 15.0, style: .circular)
-                            .shadow(color: .gray, radius: 1, x: 1, y: 2)
-                            .foregroundColor(Color(hue: 1.0, saturation: 0.0, brightness: 0.963))
+                            .shadow(color: Color(hue: 1.0, saturation: 0.178, brightness: 0.828, opacity: 0.499), radius: 5, x: 1, y: 2)
+                            .foregroundColor(Color(hue: 1.0, saturation: 0.016, brightness: 1.0))
                             .frame(width: 350, height: 150)
                 
                         HStack() {
+                            
                             VStack(alignment: .center){
                                 Text("1st Train")
                                     .font(.headline)
                                     .padding(.bottom, 5)
-                                Text(model.SB_train1)
+                                HStack {
+//                                    Text("ETA: ")
+                                    Text(model.NB_train1)
+                                }
+                                HStack {
+                                    Text("Line: ")
+    //                                Text(model.NB_train1)
+                                }
                             }
-                            .padding(.trailing, 55)
+                            .padding()
+                            
+                       
+                                VStack(alignment: .center){
+                                    Text("2nd Train")
+                                        .font(.headline)
+                                        .padding(.bottom, 5)
+                                    HStack {
+//                                        Text("ETA: ")
+                                        Text(model.NB_train2)
+                                    }
+                                    HStack {
+                                        Text("Line: ")
+        //                                Text(model.NB_train1)
+                                    }
+                                }
+                                .padding()
                             
                             VStack(alignment: .center){
-                                Text("2nd Train")
+                                Text("3rd Train")
                                     .font(.headline)
                                     .padding(.bottom, 5)
-                                Text(model.SB_train2)
+                                HStack {
+//                                        Text("ETA: ")
+                                    Text(model.NB_train2)
+                                }
+                                HStack {
+                                    Text("Line: ")
+    //                                Text(model.NB_train1)
+                                }
                             }
-                            .padding(.leading, 55)
+                            .padding()
                         }
                     }
                     
