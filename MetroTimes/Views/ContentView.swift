@@ -7,104 +7,149 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
+    
+    
     
     @ObservedObject var model = StationModel()
     
     var body: some View {
-        
 
-        VStack(alignment: .center) {
-                ZStack {
-//                    RoundedRectangle(cornerRadius: 25.0, style: .circular)
-//                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-//                        .frame(width: 275, height: 70)
-                    Text(model.stationName)
-                        .foregroundColor(.black)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
-                }
+        ZStack {
+//            Color(.blue)
+            Color(#colorLiteral(red: 0.9393643737, green: 0.9337800741, blue: 0.9436568618, alpha: 1))
+                .ignoresSafeArea()
+            VStack(alignment: .center) {
 
-            VStack{
-                Text("Northbound Trains")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                ZStack{
-                    RoundedRectangle(cornerRadius: 15.0, style: .circular)
-                        .foregroundColor(Color(hue: 1.0, saturation: 0.061, brightness: 0.91))
-                        .frame(width: 350, height: 80)
-            
-                    HStack() {
-                        VStack(alignment: .center){
-                            Text("1st Train")
-                                .font(.headline)
-                                .padding(.bottom, 5)
-                            Text(model.NB_train1)
-                        }
-                        .padding(.trailing, 55)
-                        
-                        VStack(alignment: .center){
-                            Text("2nd Train")
-                                .font(.headline)
-                                .padding(.bottom, 5)
-                            Text(model.NB_train2)
-                        }
-                        .padding(.leading, 55)
+                    ZStack {
+                        Text("MetroTimes")
+                            .font(.title)
+                            .foregroundColor(.black)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
                     }
-                }
-                .padding(.bottom, 50)
-                
-                Text("Southbound Trains")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                ZStack{
-                    RoundedRectangle(cornerRadius: 15.0, style: .circular)
-                        .foregroundColor(Color(hue: 1.0, saturation: 0.061, brightness: 0.91))
-                        .frame(width: 350, height: 80)
-            
-                    HStack() {
-                        VStack(alignment: .center){
-                            Text("1st Train")
-                                .font(.headline)
-                                .padding(.bottom, 5)
-                            Text(model.SB_train1)
-                        }
-                        .padding(.trailing, 55)
-                        
-                        VStack(alignment: .center){
-                            Text("2nd Train")
-                                .font(.headline)
-                                .padding(.bottom, 5)
-                            Text(model.SB_train2)
-                        }
-                        .padding(.leading, 55)
-                    }
-                }
-                
-                Button(action: {
-                    print("Refresh button")
-                }, label: {
-                    Text("Refresh")
-                        .fontWeight(.bold)
-                        .font(.title3)
-                        .foregroundColor(.purple)
-                        .padding()
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.purple, lineWidth: 5))
-                })
-                .padding(.top, 100)
 
-            }
-            .padding(.top, 50)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment:.top)
-            
+                VStack{
+                    HStack {
+                        Text("Northbound Trains")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                    }
+                    .padding(.leading, 10)
+                    .frame(maxWidth: .infinity, maxHeight: 30, alignment: .leading)
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 15.0, style: .circular)
+                            .shadow(color: Color(hue: 1.0, saturation: 0.178, brightness: 0.828, opacity: 0.499), radius: 5, x: 1, y: 2)
+                            .foregroundColor(Color(hue: 1.0, saturation: 0.016, brightness: 1.0))
+                            .frame(width: 350, height: 150)
+                
+                        HStack() {
+                            
+                            VStack(alignment: .center){
+                                Text("1st Train")
+                                    .font(.headline)
+                                    .padding(.bottom, 5)
+                                HStack {
+//                                    Text("ETA: ")
+                                    Text(model.NB_train1)
+                                }
+                                HStack {
+                                    Text("Line: ")
+    //                                Text(model.NB_train1)
+                                }
+                            }
+                            .padding()
+                            
+                       
+                                VStack(alignment: .center){
+                                    Text("2nd Train")
+                                        .font(.headline)
+                                        .padding(.bottom, 5)
+                                    HStack {
+//                                        Text("ETA: ")
+                                        Text(model.NB_train2)
+                                    }
+                                    HStack {
+                                        Text("Line: ")
+        //                                Text(model.NB_train1)
+                                    }
+                                }
+                                .padding()
+                            
+                            VStack(alignment: .center){
+                                Text("3rd Train")
+                                    .font(.headline)
+                                    .padding(.bottom, 5)
+                                HStack {
+//                                        Text("ETA: ")
+                                    Text(model.NB_train2)
+                                }
+                                HStack {
+                                    Text("Line: ")
+    //                                Text(model.NB_train1)
+                                }
+                            }
+                            .padding()
+                        }
+                    }
+                    
+                    
+                    HStack {
+                        Text("Southbound Trains")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                    }
+                    .padding(.leading, 10)
+                    .frame(maxWidth: .infinity, maxHeight: 30, alignment: .leading)
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 15.0, style: .circular)
+                            .shadow(color: .gray, radius: 1, x: 1, y: 2)
+                            .foregroundColor(Color(hue: 1.0, saturation: 0.0, brightness: 0.963))
+                            .frame(width: 350, height: 150)
+                
+                        HStack() {
+                            VStack(alignment: .center){
+                                Text("1st Train")
+                                    .font(.headline)
+                                    .padding(.bottom, 5)
+                                Text(model.SB_train1)
+                            }
+                            .padding(.trailing, 55)
+                            
+                            VStack(alignment: .center){
+                                Text("2nd Train")
+                                    .font(.headline)
+                                    .padding(.bottom, 5)
+                                Text(model.SB_train2)
+                            }
+                            .padding(.leading, 55)
+                        }
+                    }
+                    
+                    Button(action: {
+                        model.getRemoteData()
+                    }, label: {
+                        Text("Refresh")
+                            .fontWeight(.bold)
+                            .font(.title3)
+                            .foregroundColor(.purple)
+                            .padding()
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(Color.purple, lineWidth: 5))
+                    })
+                    .padding(.top, 100)
+
+                }
+                .padding(.top, 50)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment:.top)
+                
             }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        
+        }
+
     }
-    
-    
     
 }
 

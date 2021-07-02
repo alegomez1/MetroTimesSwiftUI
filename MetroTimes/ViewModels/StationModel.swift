@@ -65,12 +65,10 @@ class StationModel: ObservableObject {
                    }
                }
            }
-    }
-    
     
     func getRemoteData() {
         
-        let urlString = "https://miami-transit-api.herokuapp.com/api/TrainStations.json?StationID=DLN"
+        let urlString = "https://miami-transit-api.herokuapp.com/api/TrainTracker.json?StationID=DLN"
         let url = URL(string: urlString)
         
         guard url != nil else{
@@ -82,30 +80,61 @@ class StationModel: ObservableObject {
         let session = URLSession.shared
         
         let dataTask = session.dataTask(with: request) { (data, response, error) in
-            print(data!)
             
             //Check if there's an error
             guard error == nil else {
                 // There was an error
                 return
             }
+            
             do{
-                print("Remote data: About to decode")
+                
                 //Handle the response
                 let decoder = JSONDecoder()
                 
                 let stationData = try decoder.decode(Station.self, from: data!)
-//                self.stationName = stationData.RecordSet["Record"]!["StationName"]!
                 
-                print("data:", stationData)
-                
-//                var stationArray = [Station]()
-//
-//                stationArray.append(stationData)
-//
-//                self.stationInfo = stationArray
-                
+                DispatchQueue.main.async {
 
+                var stationArray = [Station]()
+
+                stationArray.append(stationData)
+
+                self.stationInfo = stationArray
+                    
+                self.stationName = stationData.RecordSet["Record"]!["StationName"]!
+                    
+                    if stationData.RecordSet["Record"]!["NB_Time1"] == nil {
+                        self.NB_train1 = "Not available"
+                    } else {
+                        self.NB_train1 = stationData.RecordSet["Record"]!["NB_Time1"]!
+                    }
+                    
+                    if stationData.RecordSet["Record"]!["NB_Time2"] == nil {
+                        self.NB_train2 = "Not available"
+                    } else {
+                        self.NB_train2 = stationData.RecordSet["Record"]!["NB_Time2"]!
+                    }
+                    
+                    if stationData.RecordSet["Record"]!["SB_Time1"] == nil {
+                        self.SB_train1 = "Not available"
+                    } else {
+                        self.SB_train1 = stationData.RecordSet["Record"]!["SB_Time1"]!
+                    }
+                    
+                    if stationData.RecordSet["Record"]!["SB_Time2"] == nil {
+                        self.SB_train2 = "Not available"
+                    } else {
+                        self.SB_train2 = stationData.RecordSet["Record"]!["SB_Time2"]!
+                    }
+                    
+//                self.NB_train1 = stationData.RecordSet["Record"]!["NB_Time1"]!
+//                self.NB_train2 = stationData.RecordSet["Record"]!["NB_Time2"]!
+                    
+//                self.SB_train1 = stationData.RecordSet["Record"]!["SB_Time1"]!
+//                self.SB_train2 = stationData.RecordSet["Record"]!["SB_Time2"]!
+                
+                }
             }
             catch {
                 //Couldn't parse JSON
@@ -116,7 +145,13 @@ class StationModel: ObservableObject {
         //Kick off the data task
         dataTask.resume()
         
+
     }
+    
+    }
+    
+    
+
         
     
 //
