@@ -9,7 +9,7 @@ import Foundation
 
 class StationModel: ObservableObject {
     
-    @Published var stationInfo = [Station]()
+    @Published var stationInfo = [RecordSet]()
     @Published var stationName = String()
     @Published var NB_train1 = String()
     @Published var NB_train2 = String()
@@ -38,9 +38,9 @@ class StationModel: ObservableObject {
                        let decoder = JSONDecoder()
                        
                        do {
-                           let jsonStation = try decoder.decode(Station.self, from: data)
+                           let jsonStation = try decoder.decode(RecordSet.self, from: data)
                            
-                           var stationArray = [Station]()
+                           var stationArray = [RecordSet]()
                            
                            stationArray.append(jsonStation)
                            
@@ -65,12 +65,10 @@ class StationModel: ObservableObject {
                    }
                }
            }
-    }
-    
     
     func getRemoteData() {
         
-        let urlString = "https://miami-transit-api.herokuapp.com/api/TrainStations.json?StationID=DLN"
+        let urlString = "https://miami-transit-api.herokuapp.com/api/TrainTracker.json?StationID=DLN"
         let url = URL(string: urlString)
         
         guard url != nil else{
@@ -94,18 +92,22 @@ class StationModel: ObservableObject {
                 //Handle the response
                 let decoder = JSONDecoder()
                 
-                let stationData = try decoder.decode(Station.self, from: data!)
-//                self.stationName = stationData.RecordSet["Record"]!["StationName"]!
+                let stationData = try decoder.decode(RecordSet.self, from: data!)
+                print(stationData.RecordSet["Record"]!["NB_Time1"]!)
                 
-                print("data:", stationData)
                 
-//                var stationArray = [Station]()
-//
-//                stationArray.append(stationData)
-//
-//                self.stationInfo = stationArray
-                
+                DispatchQueue.main.async {
+                self.stationName = stationData.RecordSet["Record"]!["StationName"]!
 
+                print("data:", stationData)
+
+                var stationArray = [RecordSet]()
+
+                stationArray.append(stationData)
+
+                self.stationInfo = stationArray
+                
+                }
             }
             catch {
                 //Couldn't parse JSON
@@ -116,7 +118,13 @@ class StationModel: ObservableObject {
         //Kick off the data task
         dataTask.resume()
         
+
     }
+    
+    }
+    
+    
+
         
     
 //

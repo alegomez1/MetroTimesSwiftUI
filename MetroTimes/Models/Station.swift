@@ -7,12 +7,11 @@
 
 import Foundation
 
-class Station: Identifiable, Decodable {
+class RecordSet: Identifiable, Decodable {
 
     var id:UUID?
     var RecordSet:[String:[String:String]]
-//    var Record:Int
-//    var Other:Int
+
 
 }
 
