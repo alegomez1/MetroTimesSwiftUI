@@ -39,61 +39,41 @@ struct ContentView: View {
                     }
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity, maxHeight: 30, alignment: .leading)
-                    ZStack{
+                    ZStack(alignment: .topLeading){
                         RoundedRectangle(cornerRadius: 15.0, style: .circular)
                             .shadow(color: Color(hue: 1.0, saturation: 0.178, brightness: 0.828, opacity: 0.499), radius: 5, x: 1, y: 2)
                             .foregroundColor(Color(hue: 1.0, saturation: 0.016, brightness: 1.0))
                             .frame(width: 350, height: 150)
                 
-                        HStack() {
-                            
-                            VStack(alignment: .center){
-                                Text("1st Train")
-                                    .font(.headline)
-                                    .padding(.bottom, 5)
-                                HStack {
-//                                    Text("ETA: ")
+                        
+                            VStack(alignment: .leading) {
+                                HStack() {
+                                    Text("ETA:")
+                                        .font(.largeTitle)
+                                        .fontWeight(.bold)
+    //                                    .padding(.top)
+    //                                    .padding(.leading)
                                     Text(model.NB_train1)
+                                        .font(.largeTitle)
+//                                        .padding(.top)
                                 }
+                                .padding(.bottom, 2)
                                 HStack {
-                                    Text("Line: ")
-    //                                Text(model.NB_train1)
-                                }
-                            }
-                            .padding()
-                            
-                       
-                                VStack(alignment: .center){
-                                    Text("2nd Train")
-                                        .font(.headline)
-                                        .padding(.bottom, 5)
-                                    HStack {
-//                                        Text("ETA: ")
-                                        Text(model.NB_train2)
-                                    }
-                                    HStack {
-                                        Text("Line: ")
-        //                                Text(model.NB_train1)
-                                    }
-                                }
-                                .padding()
-                            
-                            VStack(alignment: .center){
-                                Text("3rd Train")
-                                    .font(.headline)
-                                    .padding(.bottom, 5)
-                                HStack {
-//                                        Text("ETA: ")
+                                    Text("Second train:")
+                                        .font(.title3)
+                                        .fontWeight(.semibold)
+    //                                    .padding(.top)
+    //                                    .padding(.leading)
                                     Text(model.NB_train2)
-                                }
-                                HStack {
-                                    Text("Line: ")
-    //                                Text(model.NB_train1)
+                                        .font(.title3)
+//                                        .fontWeight(.semibold)
+    //                                    .padding(.top)
                                 }
                             }
                             .padding()
-                        }
+                        
                     }
+                    
                     
                     
                     HStack {
