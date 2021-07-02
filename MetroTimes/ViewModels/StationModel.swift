@@ -80,7 +80,6 @@ class StationModel: ObservableObject {
         let session = URLSession.shared
         
         let dataTask = session.dataTask(with: request) { (data, response, error) in
-            print(data!)
             
             //Check if there's an error
             guard error == nil else {

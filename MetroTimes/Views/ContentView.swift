@@ -7,11 +7,17 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
+    
+    
     
     @ObservedObject var model = StationModel()
     
     var body: some View {
+        
+        
         
 
         VStack(alignment: .center) {
@@ -83,7 +89,6 @@ struct ContentView: View {
                 }
                 
                 Button(action: {
-                    print("Refresh button")
                     model.getRemoteData()
                 }, label: {
                     Text("Refresh")
