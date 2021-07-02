@@ -33,8 +33,8 @@ struct ContentView: View {
 
                 VStack{
                     HStack {
-                        Text("Northbound Trains")
-                            .font(.title2)
+                        Text("Dadeland Station")
+                            .font(.title)
                             .fontWeight(.bold)
                     }
                     .padding(.leading, 10)
@@ -47,109 +47,173 @@ struct ContentView: View {
                 
                         
                             VStack(alignment: .leading) {
-                                HStack() {
-                                    Text("ETA:")
-                                        .font(.largeTitle)
+                                HStack(alignment: .center) {
+                                    Text("N.Bound ETA:")
+                                        .font(.title2)
                                         .fontWeight(.bold)
-    //                                    .padding(.top)
-    //                                    .padding(.leading)
                                     Text(model.NB_train1)
-                                        .font(.largeTitle)
-//                                        .padding(.top)
+                                        .font(.title2)
+//                                    Image(systemName: "tram.circle")
+//                                        .resizable()
+//                                        .frame(width: 35, height: 35, alignment: .center)
                                 }
-                                .padding(.bottom, 2)
                                 HStack {
-                                    Text("Second train:")
+                                    Text("Line ID:")
                                         .font(.title3)
                                         .fontWeight(.semibold)
-    //                                    .padding(.top)
-    //                                    .padding(.leading)
-                                    Text(model.NB_train2)
-                                        .font(.title3)
-//                                        .fontWeight(.semibold)
-    //                                    .padding(.top)
+                                    
+                                    if model.NB_Time1_LineID == "GRN" {
+                                        Image(systemName: "circle.fill")
+                                            .resizable()
+                                            .frame(width: 15, height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            .foregroundColor(.green)
+                                    } else {
+                                        Image(systemName: "circle.fill")
+                                            .resizable()
+                                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            .foregroundColor(.red)
+                                    }
                                 }
+                                
+                                HStack(alignment: .center) {
+                                    Text("S.Bound ETA:")
+                                        .font(.title2)
+                                        .fontWeight(.bold)
+                                    Text(model.NB_train1)
+                                        .font(.title2)
+//                                    Image(systemName: "tram.circle")
+//                                        .resizable()
+//                                        .frame(width: 35, height: 35, alignment: .center)
+                                }
+                                HStack {
+                                    Text("Line ID:")
+                                        .font(.title3)
+                                        .fontWeight(.semibold)
+                                    
+                                    if model.NB_Time1_LineID == "GRN" {
+                                        Image(systemName: "circle.fill")
+                                            .resizable()
+                                            .frame(width: 15, height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            .foregroundColor(.green)
+                                    } else {
+                                        Image(systemName: "circle.fill")
+                                            .resizable()
+                                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            .foregroundColor(.red)
+                                    }
+                                }
+
                             }
-                            .padding()
+                            .padding(.top, 5)
+                            .padding(.leading, 10)
                         
                     }
                     
                     
                     
                     HStack {
-                        Text("Southbound Trains")
-                            .font(.title2)
+//                        Text("🏫")
+//                            .padding(.bottom, 5)
+                        Text("Upcoming Trains")
+                            .font(.title)
                             .fontWeight(.bold)
+                            
                     }
+                    .padding(.top, 25)
                     .padding(.leading, 10)
-                    .frame(maxWidth: .infinity, maxHeight: 30, alignment: .leading)
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 15.0, style: .circular)
-                            .shadow(color: Color(hue: 1.0, saturation: 0.178, brightness: 0.828, opacity: 0.499), radius: 5, x: 1, y: 2)
-                            .foregroundColor(Color(hue: 1.0, saturation: 0.016, brightness: 1.0))
-                            .frame(width: 350, height: 150)
-                
-                        HStack() {
+                    .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+                    HStack {
+                        ZStack(alignment: .top){
+                            RoundedRectangle(cornerRadius: 15.0, style: .circular)
+                                .shadow(color: Color(hue: 1.0, saturation: 0.178, brightness: 0.828, opacity: 0.499), radius: 5, x: 1, y: 2)
+                                .foregroundColor(Color(hue: 1.0, saturation: 0.016, brightness: 1.0))
+                                .frame(width: 175, height: 150)
                             
-                            VStack(alignment: .center){
-                                Text("1st Train")
-                                    .font(.headline)
-                                    .padding(.bottom, 5)
-                                HStack {
-//                                    Text("ETA: ")
+                            
+                            
+                            VStack(){
+                                HStack{
+                                    Text("⬆️")
+                                        .padding(.bottom, 2)
+                                    Text("Northbound")
+                                        .fontWeight(.semibold)
+                                        .padding(.top, 10)
+                                        .padding(.bottom, 10)
+                                }
+   
+                                HStack{
+                                    Text("2nd Train:")
+                                        .fontWeight(.semibold)
                                     Text(model.NB_train1)
+
                                 }
-                                HStack {
-                                    Text("Line: ")
-    //                                Text(model.NB_train1)
-                                }
-                            }
-                            .padding()
-                            
-                       
-                                VStack(alignment: .center){
-                                    Text("2nd Train")
-                                        .font(.headline)
-                                        .padding(.bottom, 5)
-                                    HStack {
-//                                        Text("ETA: ")
-                                        Text(model.NB_train2)
-                                    }
-                                    HStack {
-                                        Text("Line: ")
-        //                                Text(model.NB_train1)
-                                    }
-                                }
-                                .padding()
-                            
-                            VStack(alignment: .center){
-                                Text("3rd Train")
-                                    .font(.headline)
-                                    .padding(.bottom, 5)
-                                HStack {
-//                                        Text("ETA: ")
+                                .padding(.leading, 5)
+                                .padding(.bottom, 10)
+                                .frame(width: 175, height: 30, alignment: .leading)
+                                
+                                HStack{
+                                    Text("3rd Train:")
+                                        .fontWeight(.semibold)
                                     Text(model.NB_train2)
+
                                 }
-                                HStack {
-                                    Text("Line: ")
-    //                                Text(model.NB_train1)
-                                }
+                                .padding(.leading, 5)
+                                .frame(width: 175, height: 30, alignment: .leading)
+
                             }
-                            .padding()
+                        }
+                        ZStack(alignment: .top){
+                            RoundedRectangle(cornerRadius: 15.0, style: .circular)
+                                .shadow(color: Color(hue: 1.0, saturation: 0.178, brightness: 0.828, opacity: 0.499), radius: 5, x: 1, y: 2)
+                                .foregroundColor(Color(hue: 1.0, saturation: 0.016, brightness: 1.0))
+                                .frame(width: 175, height: 150)
+                            
+                            VStack(){
+                                HStack{
+                                    Text("⬇️")
+                                        .padding(.bottom, 2)
+                                    Text("Southbound")
+                                        .fontWeight(.semibold)
+                                        .padding(.top, 10)
+                                        .padding(.bottom, 10)
+                                }
+                                HStack{
+                                    Text("2nd Train:")
+                                        .fontWeight(.semibold)
+                                    Text(model.SB_train1)
+
+                                }
+                                .padding(.leading, 5)
+                                .padding(.bottom, 10)
+                                .frame(width: 175, height: 30, alignment: .leading)
+                                
+                                HStack{
+                                    Text("3rd Train:")
+                                        .fontWeight(.semibold)
+                                    Text(model.SB_train2)
+
+                                }
+                                .padding(.leading, 5)
+                                .frame(width: 175, height: 30, alignment: .leading)
+
+                            }
                         }
                     }
                     
                     Button(action: {
                         model.getRemoteData()
                     }, label: {
-                        Text("Refresh")
-                            .fontWeight(.bold)
-                            .font(.title3)
-                            .foregroundColor(.purple)
-                            .padding()
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(Color.purple, lineWidth: 5))
+                        Image(systemName: "arrow.triangle.2.circlepath.circle")
+                            .resizable()
+                            .frame(width: 75, height: 75, alignment: .center)
+//                        Text("Refresh")
+//                            .fontWeight(.bold)
+//                            .font(.title3)
+                            .foregroundColor(.green)
+//                            .padding()
+//                            .overlay(
+//                                RoundedRectangle(cornerRadius: 20)
+//                                    .stroke(Color.purple, lineWidth: 5))
                     })
                     .padding(.top, 100)
 
