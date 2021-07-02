@@ -84,6 +84,7 @@ struct ContentView: View {
                 
                 Button(action: {
                     print("Refresh button")
+                    model.getRemoteData()
                 }, label: {
                     Text("Refresh")
                         .fontWeight(.bold)
@@ -103,8 +104,6 @@ struct ContentView: View {
             }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         
     }
-    
-    
     
 }
 

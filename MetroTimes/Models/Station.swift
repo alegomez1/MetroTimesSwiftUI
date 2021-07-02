@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RecordSet: Identifiable, Decodable {
+class Station: Identifiable, Decodable {
 
     var id:UUID?
     var RecordSet:[String:[String:String]]

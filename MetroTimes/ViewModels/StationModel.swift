@@ -9,7 +9,7 @@ import Foundation
 
 class StationModel: ObservableObject {
     
-    @Published var stationInfo = [RecordSet]()
+    @Published var stationInfo = [Station]()
     @Published var stationName = String()
     @Published var NB_train1 = String()
     @Published var NB_train2 = String()
@@ -38,9 +38,9 @@ class StationModel: ObservableObject {
                        let decoder = JSONDecoder()
                        
                        do {
-                           let jsonStation = try decoder.decode(RecordSet.self, from: data)
+                           let jsonStation = try decoder.decode(Station.self, from: data)
                            
-                           var stationArray = [RecordSet]()
+                           var stationArray = [Station]()
                            
                            stationArray.append(jsonStation)
                            
@@ -87,25 +87,29 @@ class StationModel: ObservableObject {
                 // There was an error
                 return
             }
+            
             do{
-                print("Remote data: About to decode")
+                
                 //Handle the response
                 let decoder = JSONDecoder()
                 
-                let stationData = try decoder.decode(RecordSet.self, from: data!)
-                print(stationData.RecordSet["Record"]!["NB_Time1"]!)
-                
+                let stationData = try decoder.decode(Station.self, from: data!)
                 
                 DispatchQueue.main.async {
-                self.stationName = stationData.RecordSet["Record"]!["StationName"]!
 
-                print("data:", stationData)
-
-                var stationArray = [RecordSet]()
+                var stationArray = [Station]()
 
                 stationArray.append(stationData)
 
                 self.stationInfo = stationArray
+                    
+                self.stationName = stationData.RecordSet["Record"]!["StationName"]!
+                    
+                self.NB_train1 = stationData.RecordSet["Record"]!["NB_Time1"]!
+                self.NB_train2 = stationData.RecordSet["Record"]!["NB_Time2"]!
+                    
+                self.SB_train1 = stationData.RecordSet["Record"]!["SB_Time1"]!
+                self.SB_train2 = stationData.RecordSet["Record"]!["SB_Time2"]!
                 
                 }
             }
