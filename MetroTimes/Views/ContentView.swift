@@ -112,8 +112,6 @@ struct ContentView: View {
                     
                     
                     HStack {
-//                        Text("🏫")
-//                            .padding(.bottom, 5)
                         Text("Upcoming Trains")
                             .font(.title)
                             .fontWeight(.bold)
