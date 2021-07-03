@@ -3,7 +3,7 @@
         "Record": {
             "StationID": "DLN",
             "StationName": "Dadeland North",
-            "NB_Time1": "5:30 min",
+            "NB_Time1": null,
             "NB_Time1_Est": "330",
             "NB_Time1_Arrival": "9:17 AM",
             "NB_Time1_Train": "SCH",
