@@ -33,7 +33,7 @@ struct ContentView: View {
 
                 VStack{
                     HStack {
-                        Text("Dadeland Station")
+                        Text(model.stationName)
                             .font(.title)
                             .fontWeight(.bold)
                     }
@@ -79,7 +79,7 @@ struct ContentView: View {
                                     Text("S.Bound ETA:")
                                         .font(.title2)
                                         .fontWeight(.bold)
-                                    Text(model.NB_train1)
+                                    Text(model.SB_train1)
                                         .font(.title2)
 //                                    Image(systemName: "tram.circle")
 //                                        .resizable()
@@ -90,7 +90,7 @@ struct ContentView: View {
                                         .font(.title3)
                                         .fontWeight(.semibold)
                                     
-                                    if model.NB_Time1_LineID == "GRN" {
+                                    if model.SB_Time1_LineID == "GRN" {
                                         Image(systemName: "circle.fill")
                                             .resizable()
                                             .frame(width: 15, height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -142,7 +142,7 @@ struct ContentView: View {
                                 HStack{
                                     Text("2nd Train:")
                                         .fontWeight(.semibold)
-                                    Text(model.NB_train1)
+                                    Text(model.NB_train2)
 
                                 }
                                 .padding(.leading, 5)
@@ -152,7 +152,7 @@ struct ContentView: View {
                                 HStack{
                                     Text("3rd Train:")
                                         .fontWeight(.semibold)
-                                    Text(model.NB_train2)
+                                    Text(model.NB_train3)
 
                                 }
                                 .padding(.leading, 5)
@@ -178,7 +178,7 @@ struct ContentView: View {
                                 HStack{
                                     Text("2nd Train:")
                                         .fontWeight(.semibold)
-                                    Text(model.SB_train1)
+                                    Text(model.SB_train2)
 
                                 }
                                 .padding(.leading, 5)
@@ -188,7 +188,7 @@ struct ContentView: View {
                                 HStack{
                                     Text("3rd Train:")
                                         .fontWeight(.semibold)
-                                    Text(model.SB_train2)
+                                    Text(model.SB_train3)
 
                                 }
                                 .padding(.leading, 5)
@@ -199,19 +199,12 @@ struct ContentView: View {
                     }
                     
                     Button(action: {
-                        model.getRemoteData()
+                        model.getRemoteData(stationID: "ALP")
                     }, label: {
                         Image(systemName: "arrow.triangle.2.circlepath.circle")
                             .resizable()
                             .frame(width: 75, height: 75, alignment: .center)
-//                        Text("Refresh")
-//                            .fontWeight(.bold)
-//                            .font(.title3)
                             .foregroundColor(.green)
-//                            .padding()
-//                            .overlay(
-//                                RoundedRectangle(cornerRadius: 20)
-//                                    .stroke(Color.purple, lineWidth: 5))
                     })
                     .padding(.top, 100)
 
