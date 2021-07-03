@@ -141,7 +141,7 @@ struct ContentView: View {
 //                                .onTapGesture {
 //                                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
 //                                               impactHeavy.impactOccurred()
-                                   }
+//                                   }
    
                                 HStack{
                                     Text("2nd Train:")
