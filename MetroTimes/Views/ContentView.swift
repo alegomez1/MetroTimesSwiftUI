@@ -138,14 +138,21 @@ struct ContentView: View {
                                         .padding(.top, 10)
                                         .padding(.bottom, 10)
                                 }
+//                                .onTapGesture {
+//                                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+//                                               impactHeavy.impactOccurred()
+                                   }
    
                                 HStack{
                                     Text("2nd Train:")
+                                        .font(.system(size: 16))
                                         .fontWeight(.semibold)
                                     Text(model.NB_train2)
+                                        .font(.system(size: 16))
 
                                 }
-                                .padding(.leading, 5)
+                                .padding(.leading, 10)
+                                .padding(.trailing, 15)
                                 .padding(.bottom, 10)
                                 .frame(width: 175, height: 30, alignment: .leading)
                                 
@@ -200,6 +207,8 @@ struct ContentView: View {
                     
                     Button(action: {
                         model.getRemoteData(stationID: "ALP")
+                        let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                            impactMed.impactOccurred()
                     }, label: {
                         Image(systemName: "arrow.triangle.2.circlepath.circle")
                             .resizable()
