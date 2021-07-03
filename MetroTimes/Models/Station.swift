@@ -10,6 +10,6 @@ import Foundation
 class Station: Identifiable, Decodable {
 
     var id:UUID?
-    var RecordSet:[String:[String:String]]
+    var RecordSet:[String:[String:String?]]
 
 }

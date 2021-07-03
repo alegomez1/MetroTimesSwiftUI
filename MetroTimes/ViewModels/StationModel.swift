@@ -43,38 +43,115 @@ class StationModel: ObservableObject {
                    let url = URL(fileURLWithPath: pathString!)
                    
                    do {
-                       print("In first do statement")
 
                        let data = try Data(contentsOf: url)
                        
                        let decoder = JSONDecoder()
                        
                        do {
-                           let jsonStation = try decoder.decode(Station.self, from: data)
+                           let jsonData = try decoder.decode(Station.self, from: data)
                            
                            var stationArray = [Station]()
                            
-                           stationArray.append(jsonStation)
+                           stationArray.append(jsonData)
                            
                            stationInfo = stationArray
                            
-                           stationName = jsonStation.RecordSet["Record"]!["StationName"]!
-                           
-                        NB_train1 = jsonStation.RecordSet["Record"]!["NB_Time1"]!
-                        NB_train2 = jsonStation.RecordSet["Record"]!["NB_Time2"]!
-                        NB_train3 = jsonStation.RecordSet["Record"]!["NB_Time3"]!
+                           stationName = jsonData.RecordSet["Record"]!["StationName"]!!
                         
-                        NB_Time1_LineID = jsonStation.RecordSet["Record"]!["NB_Time1_LineID"]!
-                        NB_Time2_LineID = jsonStation.RecordSet["Record"]!["NB_Time2_LineID"]!
-                        NB_Time3_LineID = jsonStation.RecordSet["Record"]!["NB_Time3_LineID"]!
-                            
-                        SB_train1 = jsonStation.RecordSet["Record"]!["SB_Time1"]!
-                        SB_train2 = jsonStation.RecordSet["Record"]!["SB_Time2"]!
-                        SB_train3 = jsonStation.RecordSet["Record"]!["SB_Time3"]!
-                            
-                        SB_Time1_LineID = jsonStation.RecordSet["Record"]!["SB_Time1_LineID"]!
-                        SB_Time2_LineID = jsonStation.RecordSet["Record"]!["SB_Time2_LineID"]!
-                        SB_Time3_LineID = jsonStation.RecordSet["Record"]!["SB_Time3_LineID"]!
+                        //NB Times
+                        if jsonData.RecordSet["Record"]!["NB_Time1"]! == nil {
+                            print("FOUND NIL")
+                        } else {
+                            NB_train1 = jsonData.RecordSet["Record"]!["NB_Time1"]!!
+                        }
+                        
+                        if jsonData.RecordSet["Record"]!["NB_Time2"]! == nil {
+                            print("FOUND NIL")
+                        } else {
+                            NB_train2 = jsonData.RecordSet["Record"]!["NB_Time2"]!!
+                        }
+                        
+                        if jsonData.RecordSet["Record"]!["NB_Time3"]! == nil {
+                            print("FOUND NIL")
+                        } else {
+                            NB_train3 = jsonData.RecordSet["Record"]!["NB_Time3"]!!
+                        }
+                        
+                        //NB Time Line ID
+                        if jsonData.RecordSet["Record"]!["NB_Time1_LineID"]! == nil {
+                            print("FOUND NIL")
+                        } else {
+                            NB_Time1_LineID = jsonData.RecordSet["Record"]!["NB_Time1_LineID"]!!
+                        }
+                        
+                        if jsonData.RecordSet["Record"]!["NB_Time2_LineID"]! == nil {
+                            print("FOUND NIL")
+                        } else {
+                            NB_Time2_LineID = jsonData.RecordSet["Record"]!["NB_Time2_LineID"]!!
+                        }
+                        
+                        if jsonData.RecordSet["Record"]!["NB_Time3_LineID"]! == nil {
+                            print("FOUND NIL")
+                        } else {
+                            NB_Time3_LineID = jsonData.RecordSet["Record"]!["NB_Time3_LineID"]!!
+                        }
+                        
+                        //SB Times
+                        if jsonData.RecordSet["Record"]!["SB_Time1"]! == nil {
+                            print("FOUND NIL")
+                        } else {
+                            SB_train1 = jsonData.RecordSet["Record"]!["SB_Time1"]!!
+                        }
+                        
+                        if jsonData.RecordSet["Record"]!["SB_Time2"]! == nil {
+                            print("FOUND NIL")
+                        } else {
+                            SB_train2 = jsonData.RecordSet["Record"]!["SB_Time2"]!!
+                        }
+                        
+                        if jsonData.RecordSet["Record"]!["SB_Time3"]! == nil {
+                            print("FOUND NIL")
+                        } else {
+                            SB_train3 = jsonData.RecordSet["Record"]!["SB_Time3"]!!
+                        }
+                        
+                        //SB Time Line ID
+                        if jsonData.RecordSet["Record"]!["SB_Time1_LineID"]! == nil {
+                            print("FOUND NIL")
+                        } else {
+                            SB_Time1_LineID = jsonData.RecordSet["Record"]!["SB_Time1_LineID"]!!
+                        }
+                        
+                        if jsonData.RecordSet["Record"]!["SB_Time2_LineID"]! == nil {
+                            print("FOUND NIL")
+                        } else {
+                            SB_Time2_LineID = jsonData.RecordSet["Record"]!["SB_Time2_LineID"]!!
+                        }
+                        
+                        if jsonData.RecordSet["Record"]!["SB_Time3_LineID"]! == nil {
+                            print("FOUND NIL")
+                        } else {
+                            SB_Time3_LineID = jsonData.RecordSet["Record"]!["SB_Time3_LineID"]!!
+                        }
+                        
+                        
+                        
+//                        NB_train1 = jsonData.RecordSet["Record"]!["NB_Time1"]!!
+//                        NB_train2 = jsonData.RecordSet["Record"]!["NB_Time2"]!!
+//                        NB_train3 = jsonData.RecordSet["Record"]!["NB_Time3"]!!
+
+//                        NB_Time1_LineID = jsonData.RecordSet["Record"]!["NB_Time1_LineID"]!!
+//                        NB_Time2_LineID = jsonData.RecordSet["Record"]!["NB_Time2_LineID"]!!
+//                        NB_Time3_LineID = jsonData.RecordSet["Record"]!["NB_Time3_LineID"]!!
+
+//                        SB_train1 = jsonData.RecordSet["Record"]!["SB_Time1"]!!
+//                        SB_train2 = jsonData.RecordSet["Record"]!["SB_Time2"]!!
+//                        SB_train3 = jsonData.RecordSet["Record"]!["SB_Time3"]!!
+//
+//                        SB_Time1_LineID = jsonData.RecordSet["Record"]!["SB_Time1_LineID"]!!
+//                        SB_Time2_LineID = jsonData.RecordSet["Record"]!["SB_Time2_LineID"]!!
+//                        SB_Time3_LineID = jsonData.RecordSet["Record"]!["SB_Time3_LineID"]!!
                            
                            print("Dummy data: Passed JSON decoding")
                        }
@@ -114,59 +191,111 @@ class StationModel: ObservableObject {
                 //Handle the response
                 let decoder = JSONDecoder()
                 
-                let stationData = try decoder.decode(Station.self, from: data!)
+                let jsonData = try decoder.decode(Station.self, from: data!)
                 
                 DispatchQueue.main.async {
 
                 var stationArray = [Station]()
 
-                stationArray.append(stationData)
+                stationArray.append(jsonData)
 
                 self.stationInfo = stationArray
                     
-                self.stationName = stationData.RecordSet["Record"]!["StationName"]!
+                self.stationName = jsonData.RecordSet["Record"]!["StationName"]!!
                     
-//                    if stationData.RecordSet["Record"]!["NB_Time1"] == nil {
-//                        self.NB_train1 = "Not available"
-//                    } else {
-//                        self.NB_train1 = stationData.RecordSet["Record"]!["NB_Time1"]!
-//                    }
+                    //NB Times
+                    if jsonData.RecordSet["Record"]!["NB_Time1"]! == nil {
+                        print("FOUND NIL")
+                    } else {
+                        self.NB_train1 = jsonData.RecordSet["Record"]!["NB_Time1"]!!
+                    }
+                    
+                    if jsonData.RecordSet["Record"]!["NB_Time2"]! == nil {
+                        print("FOUND NIL")
+                    } else {
+                        self.NB_train2 = jsonData.RecordSet["Record"]!["NB_Time2"]!!
+                    }
+                    
+                    if jsonData.RecordSet["Record"]!["NB_Time3"]! == nil {
+                        print("FOUND NIL")
+                    } else {
+                        self.NB_train3 = jsonData.RecordSet["Record"]!["NB_Time3"]!!
+                    }
+                    
+                    //NB Time Line ID
+                    if jsonData.RecordSet["Record"]!["NB_Time1_LineID"]! == nil {
+                        print("FOUND NIL")
+                    } else {
+                        self.NB_Time1_LineID = jsonData.RecordSet["Record"]!["self.NB_Time1_LineID"]!!
+                    }
+                    
+                    if jsonData.RecordSet["Record"]!["NB_Time2_LineID"]! == nil {
+                        print("FOUND NIL")
+                    } else {
+                        self.NB_Time2_LineID = jsonData.RecordSet["Record"]!["NB_Time2_LineID"]!!
+                    }
+                    
+                    if jsonData.RecordSet["Record"]!["NB_Time3_LineID"]! == nil {
+                        print("FOUND NIL")
+                    } else {
+                        self.NB_Time3_LineID = jsonData.RecordSet["Record"]!["NB_Time3_LineID"]!!
+                    }
+                    
+                    //SB Times
+                    if jsonData.RecordSet["Record"]!["SB_Time1"]! == nil {
+                        print("FOUND NIL")
+                    } else {
+                        self.SB_train1 = jsonData.RecordSet["Record"]!["SB_Time1"]!!
+                    }
+                    
+                    if jsonData.RecordSet["Record"]!["SB_Time2"]! == nil {
+                        print("FOUND NIL")
+                    } else {
+                        self.SB_train2 = jsonData.RecordSet["Record"]!["SB_Time2"]!!
+                    }
+                    
+                    if jsonData.RecordSet["Record"]!["SB_Time3"]! == nil {
+                        print("FOUND NIL")
+                    } else {
+                        self.SB_train3 = jsonData.RecordSet["Record"]!["SB_Time3"]!!
+                    }
+                    
+                    //SB Time Line ID
+                    if jsonData.RecordSet["Record"]!["SB_Time1_LineID"]! == nil {
+                        print("FOUND NIL")
+                    } else {
+                        self.SB_Time1_LineID = jsonData.RecordSet["Record"]!["SB_Time1_LineID"]!!
+                    }
+                    
+                    if jsonData.RecordSet["Record"]!["SB_Time2_LineID"]! == nil {
+                        print("FOUND NIL")
+                    } else {
+                        self.SB_Time2_LineID = jsonData.RecordSet["Record"]!["SB_Time2_LineID"]!!
+                    }
+                    
+                    if jsonData.RecordSet["Record"]!["SB_Time3_LineID"]! == nil {
+                        print("FOUND NIL")
+                    } else {
+                        self.SB_Time3_LineID = jsonData.RecordSet["Record"]!["SB_Time3_LineID"]!!
+                    }
+                    
+                    
 //
-//                    if stationData.RecordSet["Record"]!["NB_Time2"] == nil {
-//                        self.NB_train2 = "Not available"
-//                    } else {
-//                        self.NB_train2 = stationData.RecordSet["Record"]!["NB_Time2"]!
-//                    }
+//                self.NB_train1 = jsonData.RecordSet["Record"]!["NB_Time1"]!!
+//                self.NB_train2 = jsonData.RecordSet["Record"]!["NB_Time2"]!!
+//                self.NB_train3 = jsonData.RecordSet["Record"]!["NB_Time3"]!!
 //
-//                    if stationData.RecordSet["Record"]!["SB_Time1"] == nil {
-//                        self.SB_train1 = "Not available"
-//                    } else {
-//                        self.SB_train1 = stationData.RecordSet["Record"]!["SB_Time1"]!
-//                    }
+//                self.NB_Time1_LineID = jsonData.RecordSet["Record"]!["NB_Time1_LineID"]!!
+//                self.NB_Time2_LineID = jsonData.RecordSet["Record"]!["NB_Time2_LineID"]!!
+//                self.NB_Time3_LineID = jsonData.RecordSet["Record"]!["NB_Time3_LineID"]!!
 //
-//                    if stationData.RecordSet["Record"]!["SB_Time2"] == nil {
-//                        self.SB_train2 = "Not available"
-//                    } else {
-//                        self.SB_train2 = stationData.RecordSet["Record"]!["SB_Time2"]!
-//                    }
-                    
-                    
-                    
-                self.NB_train1 = stationData.RecordSet["Record"]!["NB_Time1"]!
-                self.NB_train2 = stationData.RecordSet["Record"]!["NB_Time2"]!
-                self.NB_train3 = stationData.RecordSet["Record"]!["NB_Time3"]!
-                
-                self.NB_Time1_LineID = stationData.RecordSet["Record"]!["NB_Time1_LineID"]!
-                self.NB_Time2_LineID = stationData.RecordSet["Record"]!["NB_Time2_LineID"]!
-                self.NB_Time3_LineID = stationData.RecordSet["Record"]!["NB_Time3_LineID"]!
-                    
-                self.SB_train1 = stationData.RecordSet["Record"]!["SB_Time1"]!
-                self.SB_train2 = stationData.RecordSet["Record"]!["SB_Time2"]!
-                self.SB_train3 = stationData.RecordSet["Record"]!["SB_Time3"]!
-                    
-                self.SB_Time1_LineID = stationData.RecordSet["Record"]!["SB_Time1_LineID"]!
-                self.SB_Time2_LineID = stationData.RecordSet["Record"]!["SB_Time2_LineID"]!
-                self.SB_Time3_LineID = stationData.RecordSet["Record"]!["SB_Time3_LineID"]!
+//                self.SB_train1 = jsonData.RecordSet["Record"]!["SB_Time1"]!!
+//                self.SB_train2 = jsonData.RecordSet["Record"]!["SB_Time2"]!!
+//                self.SB_train3 = jsonData.RecordSet["Record"]!["SB_Time3"]!!
+//
+//                self.SB_Time1_LineID = jsonData.RecordSet["Record"]!["SB_Time1_LineID"]!!
+//                self.SB_Time2_LineID = jsonData.RecordSet["Record"]!["SB_Time2_LineID"]!!
+//                self.SB_Time3_LineID = jsonData.RecordSet["Record"]!["SB_Time3_LineID"]!!
                 
                 }
             }
@@ -178,15 +307,8 @@ class StationModel: ObservableObject {
         }
         //Kick off the data task
         dataTask.resume()
-        
-
     }
-    
-    }
-    
-    
-
-        
+}
     
 //
 //
