@@ -22,83 +22,148 @@ struct DashboardView: View {
                 .ignoresSafeArea()
             VStack(alignment: .center) {
 
-                    ZStack {
-                        Text("MetroTimes")
+                        Text(model.stationName)
                             .font(.title)
                             .foregroundColor(.black)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
-                    }
+                    
                 //MARK: Featured Info
                 VStack{
-                        Text(model.stationName)
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .padding(.leading, 10)
-                            .frame(maxWidth: .infinity, maxHeight: 30, alignment: .leading)
-                    
-                    ZStack(alignment: .topLeading){
-                        RoundedRectangle(cornerRadius: 15.0, style: .circular)
-                            .shadow(color: Color(hue: 1.0, saturation: 0.178, brightness: 0.828, opacity: 0.499), radius: 5, x: 1, y: 2)
-                            .foregroundColor(Color(hue: 1.0, saturation: 0.016, brightness: 1.0))
-                            .frame(width: 350, height: 150)
-                
-                            VStack(alignment: .leading) {
-                                HStack(alignment: .center) {
-                                    Text("N.Bound ETA:")
-                                        .font(.title2)
-                                        .fontWeight(.bold)
-                                    Text(model.NB_train1)
-                                        .font(.title2)
-                                }
-                                HStack {
-                                    Text("Line ID:")
-                                        .font(.title3)
-                                        .fontWeight(.semibold)
-                                    
-                                    if model.NB_Time1_LineID == "GRN" {
-                                        Image(systemName: "circle.fill")
-                                            .resizable()
-                                            .frame(width: 15, height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            .foregroundColor(.green)
-                                    } else {
-                                        Image(systemName: "circle.fill")
-                                            .resizable()
-                                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            .foregroundColor(.red)
-                                    }
-                                }
-                                
-                                HStack(alignment: .center) {
-                                    Text("S.Bound ETA:")
-                                        .font(.title2)
-                                        .fontWeight(.bold)
-                                    Text(model.SB_train1)
-                                        .font(.title2)
-                                }
-                                HStack {
-                                    Text("Line ID:")
-                                        .font(.title3)
-                                        .fontWeight(.semibold)
-                                    
-                                    if model.SB_Time1_LineID == "GRN" {
-                                        Image(systemName: "circle.fill")
-                                            .resizable()
-                                            .frame(width: 15, height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            .foregroundColor(.green)
-                                    } else {
-                                        Image(systemName: "circle.fill")
-                                            .resizable()
-                                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            .foregroundColor(.red)
-                                    }
-                                }
 
-                            }
-                            .padding(.top, 5)
-                            .padding(.leading, 10)
+                    
+                    //MARK: Swipe Tab View
+                    
+                    TabView {
+                        ZStack(alignment: .topLeading){
+                            RoundedRectangle(cornerRadius: 15.0, style: .circular)
+                                .shadow(color: Color(hue: 1.0, saturation: 0.178, brightness: 0.828, opacity: 0.499), radius: 5, x: 1, y: 2)
+                                .foregroundColor(Color(hue: 1.0, saturation: 0.016, brightness: 1.0))
+                                .frame(width: 350, height: 250)
+                    
+                                VStack(alignment: .leading) {
+                                    HStack(alignment: .center) {
+                                        Text("N.Bound ETA:")
+                                            .font(.title2)
+                                            .fontWeight(.bold)
+                                        Text(model.NB_train1)
+                                            .font(.title2)
+                                    }
+                                    HStack {
+                                        Text("Line ID:")
+                                            .font(.title3)
+                                            .fontWeight(.semibold)
+                                        
+                                        if model.NB_Time1_LineID == "GRN" {
+                                            Image(systemName: "circle.fill")
+                                                .resizable()
+                                                .frame(width: 15, height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                .foregroundColor(.green)
+                                        } else {
+                                            Image(systemName: "circle.fill")
+                                                .resizable()
+                                                .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                .foregroundColor(.red)
+                                        }
+                                    }
+                                    
+                                    HStack(alignment: .center) {
+                                        Text("S.Bound ETA:")
+                                            .font(.title2)
+                                            .fontWeight(.bold)
+                                        Text(model.SB_train1)
+                                            .font(.title2)
+                                    }
+                                    HStack {
+                                        Text("Line ID:")
+                                            .font(.title3)
+                                            .fontWeight(.semibold)
+                                        
+                                        if model.SB_Time1_LineID == "GRN" {
+                                            Image(systemName: "circle.fill")
+                                                .resizable()
+                                                .frame(width: 15, height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                .foregroundColor(.green)
+                                        } else {
+                                            Image(systemName: "circle.fill")
+                                                .resizable()
+                                                .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                .foregroundColor(.red)
+                                        }
+                                    }
+
+                                }
+                                .padding(.top, 5)
+                                .padding(.leading, 10)
+                            
+                        }
                         
+                        ZStack(alignment: .topLeading){
+                            RoundedRectangle(cornerRadius: 15.0, style: .circular)
+                                .shadow(color: Color(hue: 1.0, saturation: 0.178, brightness: 0.828, opacity: 0.499), radius: 5, x: 1, y: 2)
+                                .foregroundColor(Color(hue: 1.0, saturation: 0.016, brightness: 1.0))
+                                .frame(width: 350, height: 250)
+                    
+                                VStack(alignment: .leading) {
+                                    HStack(alignment: .center) {
+                                        Text("TESTING")
+                                            .font(.title2)
+                                            .fontWeight(.bold)
+                                        Text(model.NB_train1)
+                                            .font(.title2)
+                                    }
+                                    HStack {
+                                        Text("Line ID:")
+                                            .font(.title3)
+                                            .fontWeight(.semibold)
+                                        
+                                        if model.NB_Time1_LineID == "GRN" {
+                                            Image(systemName: "circle.fill")
+                                                .resizable()
+                                                .frame(width: 15, height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                .foregroundColor(.green)
+                                        } else {
+                                            Image(systemName: "circle.fill")
+                                                .resizable()
+                                                .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                .foregroundColor(.red)
+                                        }
+                                    }
+                                    
+                                    HStack(alignment: .center) {
+                                        Text("S.Bound ETA:")
+                                            .font(.title2)
+                                            .fontWeight(.bold)
+                                        Text(model.SB_train1)
+                                            .font(.title2)
+                                    }
+                                    HStack {
+                                        Text("Line ID:")
+                                            .font(.title3)
+                                            .fontWeight(.semibold)
+                                        
+                                        if model.SB_Time1_LineID == "GRN" {
+                                            Image(systemName: "circle.fill")
+                                                .resizable()
+                                                .frame(width: 15, height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                .foregroundColor(.green)
+                                        } else {
+                                            Image(systemName: "circle.fill")
+                                                .resizable()
+                                                .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                .foregroundColor(.red)
+                                        }
+                                    }
+
+                                }
+                                .padding(.top, 5)
+                                .padding(.leading, 10)
+                            
+                        }
                     }
+                    .padding(.top, 0)
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                    .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                     
                     //MARK: Upcoming Trains
                     if model.showUpcomingTrains {
@@ -108,7 +173,7 @@ struct DashboardView: View {
                             .fontWeight(.bold)
                             
 
-                    .padding(.top, 25)
+                    .padding(.top, 0)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
                     HStack {
@@ -221,7 +286,7 @@ struct DashboardView: View {
                     .padding(.bottom, 10)
 
                 }
-                .padding(.top, 50)
+//                .padding(.top, 50)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment:.top)
                 
             }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
