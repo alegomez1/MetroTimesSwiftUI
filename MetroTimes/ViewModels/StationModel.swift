@@ -28,6 +28,9 @@ class StationModel: ObservableObject {
     @Published var SB_Time2_LineID = String()
     @Published var SB_Time3_LineID = String()
     
+    @Published var showMorningStation = true
+    @Published var showUpcomingTrains = true
+    
     init() {
         
         

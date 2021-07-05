@@ -9,16 +9,15 @@ import SwiftUI
 
 
 
-struct ContentView: View {
+struct DashboardView: View {
     
     
     
-    @ObservedObject var model = StationModel()
+    @EnvironmentObject var model:StationModel
     
     var body: some View {
-
+        // MARK: Top
         ZStack {
-//            Color(.blue)
             Color(#colorLiteral(red: 0.9393643737, green: 0.9337800741, blue: 0.9436568618, alpha: 1))
                 .ignoresSafeArea()
             VStack(alignment: .center) {
@@ -30,22 +29,20 @@ struct ContentView: View {
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
                     }
-
+                //MARK: Featured Info
                 VStack{
-                    HStack {
                         Text(model.stationName)
                             .font(.title)
                             .fontWeight(.bold)
-                    }
-                    .padding(.leading, 10)
-                    .frame(maxWidth: .infinity, maxHeight: 30, alignment: .leading)
+                            .padding(.leading, 10)
+                            .frame(maxWidth: .infinity, maxHeight: 30, alignment: .leading)
+                    
                     ZStack(alignment: .topLeading){
                         RoundedRectangle(cornerRadius: 15.0, style: .circular)
                             .shadow(color: Color(hue: 1.0, saturation: 0.178, brightness: 0.828, opacity: 0.499), radius: 5, x: 1, y: 2)
                             .foregroundColor(Color(hue: 1.0, saturation: 0.016, brightness: 1.0))
                             .frame(width: 350, height: 150)
                 
-                        
                             VStack(alignment: .leading) {
                                 HStack(alignment: .center) {
                                     Text("N.Bound ETA:")
@@ -53,9 +50,6 @@ struct ContentView: View {
                                         .fontWeight(.bold)
                                     Text(model.NB_train1)
                                         .font(.title2)
-//                                    Image(systemName: "tram.circle")
-//                                        .resizable()
-//                                        .frame(width: 35, height: 35, alignment: .center)
                                 }
                                 HStack {
                                     Text("Line ID:")
@@ -81,9 +75,6 @@ struct ContentView: View {
                                         .fontWeight(.bold)
                                     Text(model.SB_train1)
                                         .font(.title2)
-//                                    Image(systemName: "tram.circle")
-//                                        .resizable()
-//                                        .frame(width: 35, height: 35, alignment: .center)
                                 }
                                 HStack {
                                     Text("Line ID:")
@@ -109,18 +100,19 @@ struct ContentView: View {
                         
                     }
                     
-                    
-                    
-                    HStack {
+                    //MARK: Upcoming Trains
+                    if model.showUpcomingTrains {
+                        
                         Text("Upcoming Trains")
                             .font(.title)
                             .fontWeight(.bold)
                             
-                    }
+
                     .padding(.top, 25)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
                     HStack {
+                        //MARK: Northbound Trains
                         ZStack(alignment: .top){
                             RoundedRectangle(cornerRadius: 15.0, style: .circular)
                                 .shadow(color: Color(hue: 1.0, saturation: 0.178, brightness: 0.828, opacity: 0.499), radius: 5, x: 1, y: 2)
@@ -167,6 +159,7 @@ struct ContentView: View {
 
                             }
                         }
+                        //MARK: Southbound Trains
                         ZStack(alignment: .top){
                             RoundedRectangle(cornerRadius: 15.0, style: .circular)
                                 .shadow(color: Color(hue: 1.0, saturation: 0.178, brightness: 0.828, opacity: 0.499), radius: 5, x: 1, y: 2)
@@ -204,9 +197,19 @@ struct ContentView: View {
                             }
                         }
                     }
-                    
+                        
+                    }
+                    Spacer()
+                    //MARK: Refresh Button
                     Button(action: {
-                        model.getRemoteData(stationID: "ALP")
+                        
+                        if model.showMorningStation {
+                            model.getRemoteData(stationID: "DLN")
+                        } else {
+                            model.getRemoteData(stationID: "ALP")
+                        }
+                        
+                        
                         let impactMed = UIImpactFeedbackGenerator(style: .medium)
                             impactMed.impactOccurred()
                     }, label: {
@@ -215,7 +218,7 @@ struct ContentView: View {
                             .frame(width: 75, height: 75, alignment: .center)
                             .foregroundColor(.green)
                     })
-                    .padding(.top, 100)
+                    .padding(.bottom, 10)
 
                 }
                 .padding(.top, 50)
@@ -230,6 +233,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        DashboardView()
+            .environmentObject(StationModel())
     }
 }
