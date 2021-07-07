@@ -11,6 +11,7 @@ class StationModel: ObservableObject {
     
     @Published var stationInfo = [Station]()
     @Published var stationName = String()
+    @Published var stationID = String()
     
     @Published var NB_train1 = String()
     @Published var NB_train2 = String()
@@ -34,8 +35,8 @@ class StationModel: ObservableObject {
     init() {
         
         
-        getDummyData()
-//        getRemoteData()
+//        getDummyData()
+        getRemoteData(stationID: stationID)
     }
     
     func getDummyData() {
@@ -181,6 +182,7 @@ class StationModel: ObservableObject {
            }
     
     func getRemoteData(stationID: String) {
+        
         
         let urlString = "https://miami-transit-api.herokuapp.com/api/TrainTracker.json?StationID=\(stationID)"
         let url = URL(string: urlString)
@@ -335,4 +337,78 @@ class StationModel: ObservableObject {
         //Kick off the data task
         dataTask.resume()
     }
+
+    //MARK: NBTrain1
+    func getNBTrain1(stationID: String) -> String {
+    
+    let urlString = "https://miami-transit-api.herokuapp.com/api/TrainTracker.json?StationID=\(stationID)"
+    let url = URL(string: urlString)
+    
+    guard url != nil else{
+        return "N/A"
+    }
+    
+    let request = URLRequest(url: url!)
+    
+    let session = URLSession.shared
+    
+    let dataTask = session.dataTask(with: request) { (data, response, error) in
+        
+        //Check if there's an error
+        guard error == nil else {
+            // There was an error
+            return
+        }
+        
+        do{
+            
+            //Handle the response
+            let decoder = JSONDecoder()
+            
+            let jsonData = try decoder.decode(Station.self, from: data!)
+            
+            DispatchQueue.main.async {
+
+            var stationArray = [Station]()
+
+            stationArray.append(jsonData)
+
+            self.stationInfo = stationArray
+                
+            self.stationName = jsonData.RecordSet["Record"]!["StationName"]!!
+                
+                //NB Times
+                if jsonData.RecordSet["Record"]!["NB_Time1"]! == nil {
+                    print("FOUND NIL at self.NB_train1")
+                    self.NB_train1 = "N/A"
+                } else {
+                    self.NB_train1 = jsonData.RecordSet["Record"]!["NB_Time1"]!!
+                }
+                
+                //NB Time Line ID
+                if jsonData.RecordSet["Record"]!["NB_Time1_LineID"]! == nil {
+                    print("FOUND NIL at self.NB_Time1_LineID")
+                    self.NB_Time1_LineID = "N/A"
+                } else {
+                    self.NB_Time1_LineID = jsonData.RecordSet["Record"]!["NB_Time1_LineID"]!!
+                }
+            }
+        }
+        catch {
+            //Couldn't parse JSON
+            print("Remote data error:", error)
+        }
+
+    }
+
+    //Kick off the data task
+    dataTask.resume()
+        
+        return self.NB_train1
+        
 }
+}
+
+
+
+
