@@ -35,6 +35,11 @@ class StationModel: ObservableObject {
     @Published var showMorningStation = true
     @Published var showUpcomingTrains = true
     
+    @Published var firstStation = "Dadeland North"
+    @Published var secondStation = String()
+    
+    @Published var isShowing = false
+    
     init() {
         
         
@@ -514,7 +519,10 @@ class StationModel: ObservableObject {
 //        return self.NB_train1
         
 }
+
 }
+
+
 
 
 

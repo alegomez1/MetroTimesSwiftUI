@@ -1,0 +1,70 @@
+[{
+            "StationName": "Allapattah",
+            "StationID": "ALP"
+        }, {
+            "StationName": "Brickell",
+            "StationID": "BLK"
+        }, {
+            "StationName": "Brownsville",
+            "StationID": "BVL"
+        }, {
+            "StationName": "Civic Center",
+            "StationID": "CVC"
+        }, {
+            "StationName": "Coconut Grove",
+            "StationID": "CGV"
+        }, {
+            "StationName": "Culmer",
+            "StationID": "CUL"
+        }, {
+            "StationName": "Dadeland North",
+            "StationID": "DLN"
+        }, {
+            "StationName": "Dadeland South",
+            "StationID": "DLS"
+        }, {
+            "StationName": "Douglas Road",
+            "StationID": "DRD"
+        }, {
+            "StationName": "Dr. Martin Luther King, Jr.",
+            "StationID": "MLK"
+        }, {
+            "StationName": "Earlington Heights",
+            "StationID": "EHT"
+        }, {
+            "StationName": "Government Center",
+            "StationID": "GVT"
+        }, {
+            "StationName": "Hialeah",
+            "StationID": "HIA"
+        }, {
+            "StationName": "Historic Overtown/Lyric Theatre",
+            "StationID": "OVT"
+        }, {
+            "StationName": "Miami International Airport",
+            "StationID": "MIA"
+        }, {
+            "StationName": "Northside",
+            "StationID": "NSD"
+        }, {
+            "StationName": "Okeechobee",
+            "StationID": "OKE"
+        }, {
+            "StationName": "Palmetto",
+            "StationID": "PAL"
+        }, {
+            "StationName": "Santa Clara",
+            "StationID": "SCL"
+        }, {
+            "StationName": "South Miami",
+            "StationID": "SMI"
+        }, {
+            "StationName": "Tri-Rail",
+            "StationID": "TRI"
+        }, {
+            "StationName": "University",
+            "StationID": "UNV"
+        }, {
+            "StationName": "Vizcaya",
+            "StationID": "VIZ"
+        }]

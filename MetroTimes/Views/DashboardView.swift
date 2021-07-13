@@ -61,7 +61,7 @@ struct DashboardView: View {
 //                        .background(Color.white)
                         
                         Picker("Change Stations", selection: $selectedStation) {
-                            Text("Dadeland North").tag("DLN")
+                            Text(model.firstStation).tag("DLN")
                             Text("Brickell").tag("ALP")
                             
                             
@@ -82,7 +82,10 @@ struct DashboardView: View {
                                 
                             
                             //MARK: Upcoming Trains
-                            UpcomingTrainsView()
+                            if model.showUpcomingTrains {
+                                UpcomingTrainsView()
+                            }
+                            
 
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment:.top)
