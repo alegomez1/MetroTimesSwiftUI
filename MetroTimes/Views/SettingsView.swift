@@ -21,14 +21,20 @@ struct SettingsView: View {
             Divider()
             Toggle("Show Upcoming Trains", isOn: $model.showUpcomingTrains)
             Divider()
-            Button(action: {
-                model.isShowing = true
-            }, label: {
-                Text("Change first station")
-            })
-            .sheet(isPresented: $model.isShowing, content: {
-                AllStationsView()
-            })
+            HStack{
+                Button(action: {
+                    model.isShowing = true
+                }, label: {
+                    Text("Change first station")
+                    Spacer()
+                    Text(model.firstStationID)
+                })
+                .sheet(isPresented: $model.isShowing, content: {
+                    AllStationsView()
+                })
+                
+            }
+
             
             Spacer()
         }
