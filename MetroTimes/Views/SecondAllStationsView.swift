@@ -7,80 +7,80 @@
 
 import SwiftUI
 
-struct AllStationsView: View {
+struct SecondAllStationsSheetView: View {
     @EnvironmentObject var model:StationModel
     var body: some View {
         List {
             Group {
             Button(action: {
-                model.firstStation = "Allapattah"
-                model.firstStationID = "ALP"
+                model.secondStation = "Allapattah"
+                model.secondStationID = "ALP"
                 model.isShowing = false
-                model.updateModel(stationID: model.firstStationID)
+                model.updateModel(stationID: model.secondStationID)
             }, label: {
                 Text("Allapattah")
             })
             Button(action: {
-                model.firstStation = "Brickell"
-                model.firstStationID = "BLK"
+                model.secondStation = "Brickell"
+                model.secondStationID = "BLK"
                 model.isShowing = false
-                model.updateModel(stationID: model.firstStationID)
+                model.updateModel(stationID: model.secondStationID)
             }, label: {
                 Text("Brickell")
             })
             Button(action: {
-                model.firstStation = "Brownsville"
-                model.firstStationID = "BVL"
+                model.secondStation = "Brownsville"
+                model.secondStationID = "BVL"
                 model.isShowing = false
-                model.updateModel(stationID: model.firstStationID)
+                model.updateModel(stationID: model.secondStationID)
             }, label: {
                 Text("Brownsville")
             })
             Button(action: {
-                model.firstStation = "Civic Center"
-                model.firstStationID = "CVC"
+                model.secondStation = "Civic Center"
+                model.secondStationID = "CVC"
                 model.isShowing = false
-                model.updateModel(stationID: model.firstStationID)
+                model.updateModel(stationID: model.secondStationID)
             }, label: {
                 Text("Civic Center")
             })
             Button(action: {
-                model.firstStation = "Coconut Grove"
-                model.firstStationID = "CGV"
+                model.secondStation = "Coconut Grove"
+                model.secondStationID = "CGV"
                 model.isShowing = false
-                model.updateModel(stationID: model.firstStationID)
+                model.updateModel(stationID: model.secondStationID)
             }, label: {
                 Text("Coconut Grove")
             })
             Button(action: {
-                model.firstStation = "Culmer"
-                model.firstStationID = "CUL"
+                model.secondStation = "Culmer"
+                model.secondStationID = "CUL"
                 model.isShowing = false
-                model.updateModel(stationID: model.firstStationID)
+                model.updateModel(stationID: model.secondStationID)
             }, label: {
                 Text("Culmer")
             })
             Button(action: {
-                model.firstStation = "Dadeland North"
-                model.firstStationID = "DLN"
+                model.secondStation = "Dadeland North"
+                model.secondStationID = "DLN"
                 model.isShowing = false
-                model.updateModel(stationID: model.firstStationID)
+                model.updateModel(stationID: model.secondStationID)
             }, label: {
                 Text("Dadeland North")
             })
             Button(action: {
-                model.firstStation = "Dadeland South"
-                model.firstStationID = "DLS"
+                model.secondStation = "Dadeland South"
+                model.secondStationID = "DLS"
                 model.isShowing = false
-                model.updateModel(stationID: model.firstStationID)
+                model.updateModel(stationID: model.secondStationID)
             }, label: {
                 Text("Dadeland South")
             })
             Button(action: {
-                model.firstStation = "Douglas Road"
-                model.firstStationID = "DRD"
+                model.secondStation = "Douglas Road"
+                model.secondStationID = "DRD"
                 model.isShowing = false
-                model.updateModel(stationID: model.firstStationID)
+                model.updateModel(stationID: model.secondStationID)
             }, label: {
                 Text("Douglas Road")
             })
@@ -90,50 +90,50 @@ struct AllStationsView: View {
             Group {
                 
             Button(action: {
-                model.firstStation = "Dr. Martin Luther King, Jr."
-                model.firstStationID = "MLK"
+                model.secondStation = "Dr. Martin Luther King, Jr."
+                model.secondStationID = "MLK"
                 model.isShowing = false
-                model.updateModel(stationID: model.firstStationID)
+                model.updateModel(stationID: model.secondStationID)
             }, label: {
                 Text("Dr. Martin Luther King, Jr.")
             })
             Button(action: {
-                model.firstStation = "Earlington Heights"
-                model.firstStationID = "EHT"
+                model.secondStation = "Earlington Heights"
+                model.secondStationID = "EHT"
                 model.isShowing = false
-                model.updateModel(stationID: model.firstStationID)
+                model.updateModel(stationID: model.secondStationID)
             }, label: {
                 Text("Earlington Heights")
             })
             Button(action: {
-                model.firstStation = "Government Center"
-                model.firstStationID = "GVT"
+                model.secondStation = "Government Center"
+                model.secondStationID = "GVT"
                 model.isShowing = false
-                model.updateModel(stationID: model.firstStationID)
+                model.updateModel(stationID: model.secondStationID)
             }, label: {
                 Text("Government Center")
             })
             Button(action: {
-                model.firstStation = "Hialeah"
-                model.firstStationID = "HIA"
+                model.secondStation = "Hialeah"
+                model.secondStationID = "HIA"
                 model.isShowing = false
-                model.updateModel(stationID: model.firstStationID)
+                model.updateModel(stationID: model.secondStationID)
             }, label: {
                 Text("Hialeah")
             })
             Button(action: {
-                model.firstStation = "Historic Overtown/Lyric Theatre"
-                model.firstStationID = "OVT"
+                model.secondStation = "Historic Overtown/Lyric Theatre"
+                model.secondStationID = "OVT"
                 model.isShowing = false
-                model.updateModel(stationID: model.firstStationID)
+                model.updateModel(stationID: model.secondStationID)
             }, label: {
                 Text("Historic Overtown/Lyric Theatre")
             })
             Button(action: {
-                model.firstStation = "Miami International Airport"
-                model.firstStationID = "MIA"
+                model.secondStation = "Miami International Airport"
+                model.secondStationID = "MIA"
                 model.isShowing = false
-                model.updateModel(stationID: model.firstStationID)
+                model.updateModel(stationID: model.secondStationID)
             }, label: {
                 Text("Miami International Airport")
             })
@@ -141,66 +141,66 @@ struct AllStationsView: View {
             
             Group {
                             Button(action: {
-                                model.firstStation = "Northside"
-                                model.firstStationID = "NSD"
+                                model.secondStation = "Northside"
+                                model.secondStationID = "NSD"
                                 model.isShowing = false
-                                model.updateModel(stationID: model.firstStationID)
+                                model.updateModel(stationID: model.secondStationID)
                             }, label: {
                                 Text("Northside")
                             })
                             Button(action: {
-                                model.firstStation = "Okeechobee"
-                                model.firstStationID = "OKE"
+                                model.secondStation = "Okeechobee"
+                                model.secondStationID = "OKE"
                                 model.isShowing = false
-                                model.updateModel(stationID: model.firstStationID)
+                                model.updateModel(stationID: model.secondStationID)
                             }, label: {
                                 Text("Okeechobee")
                             })
                             Button(action: {
-                                model.firstStation = "Palmetto"
-                                model.firstStationID = "PAL"
+                                model.secondStation = "Palmetto"
+                                model.secondStationID = "PAL"
                                 model.isShowing = false
-                                model.updateModel(stationID: model.firstStationID)
+                                model.updateModel(stationID: model.secondStationID)
                             }, label: {
                                 Text("Palmetto")
                             })
                             Button(action: {
-                                model.firstStation = "Santa Clara"
-                                model.firstStationID = "SCL"
+                                model.secondStation = "Santa Clara"
+                                model.secondStationID = "SCL"
                                 model.isShowing = false
-                                model.updateModel(stationID: model.firstStationID)
+                                model.updateModel(stationID: model.secondStationID)
                             }, label: {
                                 Text("Santa Clara")
                             })
                             Button(action: {
-                                model.firstStation = "South Miami"
-                                model.firstStationID = "SMI"
+                                model.secondStation = "South Miami"
+                                model.secondStationID = "SMI"
                                 model.isShowing = false
-                                model.updateModel(stationID: model.firstStationID)
+                                model.updateModel(stationID: model.secondStationID)
                             }, label: {
                                 Text("South Miami")
                             })
                             Button(action: {
-                                model.firstStation = "Tri-Rail"
-                                model.firstStationID = "ALP"
+                                model.secondStation = "Tri-Rail"
+                                model.secondStationID = "ALP"
                                 model.isShowing = false
-                                model.updateModel(stationID: model.firstStationID)
+                                model.updateModel(stationID: model.secondStationID)
                             }, label: {
                                 Text("Tri-Rail")
                             })
                             Button(action: {
-                                model.firstStation = "University"
-                                model.firstStationID = "UNV"
+                                model.secondStation = "University"
+                                model.secondStationID = "UNV"
                                 model.isShowing = false
-                                model.updateModel(stationID: model.firstStationID)
+                                model.updateModel(stationID: model.secondStationID)
                             }, label: {
                                 Text("University")
                             })
                             Button(action: {
-                                model.firstStation = "Vizcaya"
-                                model.firstStationID = "VIZ"
+                                model.secondStation = "Vizcaya"
+                                model.secondStationID = "VIZ"
                                 model.isShowing = false
-                                model.updateModel(stationID: model.firstStationID)
+                                model.updateModel(stationID: model.secondStationID)
                             }, label: {
                                 Text("Vizcaya")
                             })
@@ -210,9 +210,9 @@ struct AllStationsView: View {
 }
 
 
-struct AllStationsView_Previews: PreviewProvider {
+struct SecondAllStationsView_Previews: PreviewProvider {
     static var previews: some View {
-        AllStationsView()
+        SecondAllStationsSheetView()
             .environmentObject(StationModel())
     }
 }

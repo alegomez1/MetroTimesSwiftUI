@@ -199,9 +199,8 @@ class StationModel: ObservableObject {
     
     func getRemoteData(stationID: String) {
         
+        let urlString = "https://miami-transit-api.herokuapp.com/api/TrainTracker.json?StationID=\(self.returnStationID(newStationID: String()))"
         
-        let urlString = "https://miami-transit-api.herokuapp.com/api/TrainTracker.json?StationID=\(self.returnStationID(newStationID: firstStationID))"
-        print("firstStationID", firstStationID)
         let url = URL(string: urlString)
         
         guard url != nil else{

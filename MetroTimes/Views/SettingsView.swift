@@ -29,10 +29,24 @@ struct SettingsView: View {
                     Spacer()
                     Text(model.firstStationID)
                 })
+                .foregroundColor(.black)
                 .sheet(isPresented: $model.isShowing, content: {
-                    AllStationsView()
+                    FirstAllStationsSheetView()
                 })
-                
+            }
+            Divider()
+            HStack{
+                Button(action: {
+                    model.isShowing = true
+                }, label: {
+                    Text("Change second station")
+                    Spacer()
+                    Text(model.secondStationID)
+                })
+                .foregroundColor(.black)
+                .sheet(isPresented: $model.isShowing, content: {
+                    SecondAllStationsSheetView()
+                })
             }
 
             
