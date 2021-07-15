@@ -50,7 +50,7 @@ struct DashboardView: View {
                         .padding(.top, 10)
 //                        .background(Color.white)
                         
-                        Picker("Change Stations", selection: $selectedStation) {
+                Picker("Change Stations", selection: $model.selectedStationTest) {
                             Text(model.firstStation).tag(model.firstStationID)
                             Text(model.secondStation).tag(model.secondStationID)
             
@@ -58,7 +58,7 @@ struct DashboardView: View {
                         .pickerStyle(SegmentedPickerStyle())
     //                    .padding(.top, 30)
                         .padding([.leading, .trailing], 30)
-                        .onChange(of: selectedStation) {tag in model.updateModel(stationID: tag)
+                .onChange(of: model.selectedStationTest) {tag in model.updateModel(stationID: tag)
                             
                             print("changed tag", tag)
                         }
@@ -69,7 +69,6 @@ struct DashboardView: View {
                                 FeaturedCellView(passedID: $selectedStation)
                                     .padding(.top, 20)
                                 
-                            
                             //MARK: Upcoming Trains
                             if model.showUpcomingTrains {
                                 UpcomingTrainsView()

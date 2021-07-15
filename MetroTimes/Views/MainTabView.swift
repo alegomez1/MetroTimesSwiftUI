@@ -16,6 +16,7 @@ struct MainTabView: View {
                 .tabItem {
                     Image(systemName: "tram")
                 }
+                
             SettingsView()
                 .tabItem {
                     Image(systemName: "gearshape")
