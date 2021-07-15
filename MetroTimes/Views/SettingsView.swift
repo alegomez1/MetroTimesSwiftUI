@@ -23,28 +23,28 @@ struct SettingsView: View {
             Divider()
             HStack{
                 Button(action: {
-                    model.isShowing = true
+                    model.isFirstSheetShowing = true
                 }, label: {
                     Text("Change first station")
                     Spacer()
                     Text(model.firstStationID)
                 })
                 .foregroundColor(.black)
-                .sheet(isPresented: $model.isShowing, content: {
+                .sheet(isPresented: $model.isFirstSheetShowing, content: {
                     FirstAllStationsSheetView()
                 })
             }
             Divider()
             HStack{
                 Button(action: {
-                    model.isShowing = true
+                    model.isSecondSheetShowing = true
                 }, label: {
                     Text("Change second station")
                     Spacer()
                     Text(model.secondStationID)
                 })
                 .foregroundColor(.black)
-                .sheet(isPresented: $model.isShowing, content: {
+                .sheet(isPresented: $model.isSecondSheetShowing, content: {
                     SecondAllStationsSheetView()
                 })
             }

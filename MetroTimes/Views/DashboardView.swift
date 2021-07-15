@@ -62,9 +62,7 @@ struct DashboardView: View {
                         
                         Picker("Change Stations", selection: $selectedStation) {
                             Text(model.firstStation).tag("DLN")
-                            Text("Brickell").tag("ALP")
-                            
-                            
+                            Text(model.secondStation).tag("ALP")
             
                         }
                         .pickerStyle(SegmentedPickerStyle())

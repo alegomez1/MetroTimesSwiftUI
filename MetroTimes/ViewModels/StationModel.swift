@@ -41,7 +41,8 @@ class StationModel: ObservableObject {
     @Published var secondStation = "Brickell"
     @Published var secondStationID = "BLK"
     
-    @Published var isShowing = false
+    @Published var isFirstSheetShowing = false
+    @Published var isSecondSheetShowing = false
     
     init() {
         
