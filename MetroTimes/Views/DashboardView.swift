@@ -66,7 +66,7 @@ struct DashboardView: View {
                         //MARK: Featured Info
                         VStack{
  
-                                FeaturedCellView(passedID: $selectedStation)
+                            FeaturedCellView(passedID: $model.selectedStationTest)
                                     .padding(.top, 20)
                                 
                             //MARK: Upcoming Trains
