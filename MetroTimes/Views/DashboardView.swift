@@ -32,7 +32,7 @@ struct DashboardView: View {
                             //MARK: Refresh Button
                             Button(action: {
     
-                                model.updateModel(stationID: selectedStation)
+                                model.updateModel(stationID: model.selectedStationTest)
     
     
                                 let impactMed = UIImpactFeedbackGenerator(style: .medium)
