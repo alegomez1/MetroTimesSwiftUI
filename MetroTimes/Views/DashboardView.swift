@@ -11,18 +11,8 @@ import SwiftUI
 
 struct DashboardView: View {
     
-    
-    
     @EnvironmentObject var model:StationModel
     @State var selectedStation = "DLN"
-    
-    
-    
-    
-    
-//    struct currentData {
-//        @State var selectedStation = "DLN"
-//    }
     
     var body: some View {
         
@@ -70,8 +60,6 @@ struct DashboardView: View {
                         .padding([.leading, .trailing], 30)
                         .onChange(of: selectedStation) {tag in model.updateModel(stationID: tag)}
                         
-                        
-                            
                         //MARK: Featured Info
                         VStack{
  
@@ -83,8 +71,6 @@ struct DashboardView: View {
                             if model.showUpcomingTrains {
                                 UpcomingTrainsView()
                             }
-                            
-
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment:.top)
                         

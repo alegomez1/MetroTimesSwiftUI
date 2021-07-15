@@ -45,8 +45,6 @@ class StationModel: ObservableObject {
     @Published var isSecondSheetShowing = false
     
     init() {
-        
-        
 //        getDummyData()
         getRemoteData(stationID: "DLN")
     }
