@@ -10,6 +10,7 @@ import SwiftUI
 struct FeaturedCellView: View {
     
     @EnvironmentObject var model:StationModel
+    @Binding var passedID : String
     
     var body: some View {
         ZStack(alignment: .topLeading){
@@ -20,6 +21,7 @@ struct FeaturedCellView: View {
     
                 VStack(alignment: .leading) {
                     //MARK: Northbound
+                    Text(passedID)
                     Text("Northbound Train")
                             .font(.system(.title2, design: .rounded))
                         .fontWeight(.semibold)
@@ -108,9 +110,9 @@ struct FeaturedCellView: View {
     }
 }
 
-struct FeaturedCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        FeaturedCellView()
-            .environmentObject(StationModel())
-    }
-}
+//struct FeaturedCellView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FeaturedCellView(passedID: "TST")
+//            .environmentObject(StationModel())
+//    }
+//}

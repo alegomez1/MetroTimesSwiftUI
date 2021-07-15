@@ -51,19 +51,22 @@ struct DashboardView: View {
 //                        .background(Color.white)
                         
                         Picker("Change Stations", selection: $selectedStation) {
-                            Text(model.firstStation).tag("DLN")
-                            Text(model.secondStation).tag("ALP")
+                            Text(model.firstStation).tag(model.firstStationID)
+                            Text(model.secondStation).tag(model.secondStationID)
             
                         }
                         .pickerStyle(SegmentedPickerStyle())
     //                    .padding(.top, 30)
                         .padding([.leading, .trailing], 30)
-                        .onChange(of: selectedStation) {tag in model.updateModel(stationID: tag)}
+                        .onChange(of: selectedStation) {tag in model.updateModel(stationID: tag)
+                            
+                            print("changed tag", tag)
+                        }
                         
                         //MARK: Featured Info
                         VStack{
  
-                                FeaturedCellView()
+                                FeaturedCellView(passedID: $selectedStation)
                                     .padding(.top, 20)
                                 
                             
