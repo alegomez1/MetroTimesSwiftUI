@@ -44,6 +44,8 @@ class StationModel: ObservableObject {
     @Published var isFirstSheetShowing = false
     @Published var isSecondSheetShowing = false
     
+    @Published var selectedStationTest = "DLN"
+    
     init() {
 //        getDummyData()
         getRemoteData(stationID: "DLN")

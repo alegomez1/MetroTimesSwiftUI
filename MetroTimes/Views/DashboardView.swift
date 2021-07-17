@@ -32,7 +32,7 @@ struct DashboardView: View {
                             //MARK: Refresh Button
                             Button(action: {
     
-                                model.updateModel(stationID: selectedStation)
+                                model.updateModel(stationID: model.selectedStationTest)
     
     
                                 let impactMed = UIImpactFeedbackGenerator(style: .medium)
@@ -50,23 +50,25 @@ struct DashboardView: View {
                         .padding(.top, 10)
 //                        .background(Color.white)
                         
-                        Picker("Change Stations", selection: $selectedStation) {
-                            Text(model.firstStation).tag("DLN")
-                            Text(model.secondStation).tag("ALP")
+                Picker("Change Stations", selection: $model.selectedStationTest) {
+                            Text(model.firstStation).tag(model.firstStationID)
+                            Text(model.secondStation).tag(model.secondStationID)
             
                         }
                         .pickerStyle(SegmentedPickerStyle())
     //                    .padding(.top, 30)
                         .padding([.leading, .trailing], 30)
-                        .onChange(of: selectedStation) {tag in model.updateModel(stationID: tag)}
+                .onChange(of: model.selectedStationTest) {tag in model.updateModel(stationID: tag)
+                            
+                            print("changed tag", tag)
+                        }
                         
                         //MARK: Featured Info
                         VStack{
  
-                                FeaturedCellView()
+                            FeaturedCellView(passedID: $model.selectedStationTest)
                                     .padding(.top, 20)
                                 
-                            
                             //MARK: Upcoming Trains
                             if model.showUpcomingTrains {
                                 UpcomingTrainsView()
