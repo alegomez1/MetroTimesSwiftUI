@@ -22,6 +22,7 @@
 		25C5AEFA2693874B0077AF52 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C5AEF92693874B0077AF52 /* SettingsView.swift */; };
 		25C747C7268989A400A64EA4 /*  station.json in Resources */ = {isa = PBXBuildFile; fileRef = 2541305A26897391000D8F7D /*  station.json */; };
 		25C747C9268989FA00A64EA4 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 25C747C8268989FA00A64EA4 /* data.json */; };
+		25EE8AD926A285210049DA30 /* StationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EE8AD826A285210049DA30 /* StationData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		25C5AEF5269386E40077AF52 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		25C5AEF92693874B0077AF52 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		25C747C8268989FA00A64EA4 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		25EE8AD826A285210049DA30 /* StationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				2541305E26898349000D8F7D /* Station.swift */,
+				25EE8AD826A285210049DA30 /* StationData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				252C3A31269D41BE00CC25D4 /* FirstAllStationsSheetView.swift in Sources */,
 				252E7FA2269A08F400C8A0A6 /* UpcomingTrainsView.swift in Sources */,
 				2541304A26897354000D8F7D /* DashboardView.swift in Sources */,
+				25EE8AD926A285210049DA30 /* StationData.swift in Sources */,
 				2597FE08269551A0009EEF05 /* FeaturedCellView.swift in Sources */,
 				2541305D2689833C000D8F7D /* StationModel.swift in Sources */,
 				25C5AEFA2693874B0077AF52 /* SettingsView.swift in Sources */,

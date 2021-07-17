@@ -7,9 +7,11 @@
 
 import Foundation
 
-class Station: Identifiable, Decodable {
+class Station: Identifiable, Decodable, Encodable {
 
     var id:UUID?
     var RecordSet:[String:[String:String?]]
+    var morningStation: String
+    var eveningStation: String
 
 }

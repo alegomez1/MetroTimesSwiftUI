@@ -9,6 +9,12 @@ import SwiftUI
 
 struct MainTabView: View {
     
+//    @Environment(\.scenePhase) private var scenePhase
+//    let saveAction: () -> Void
+    @ObservedObject private var data = StationData()
+    @Environment(\.scenePhase) private var scenePhase
+    let saveAction: () -> Void
+    
     var body: some View {
         
         TabView {
@@ -22,12 +28,16 @@ struct MainTabView: View {
                     Image(systemName: "gearshape")
                 }
         }
+//        .onChange(of: scenePhase) {phase in
+//        if phase == .inactive {saveAction()}
+//        }
         .environmentObject(StationModel())
     }
+    
 }
 
-struct TabView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainTabView()
-    }
-}
+//struct TabView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainTabView()
+//    }
+//}
